@@ -1,9 +1,10 @@
 class User
   include Mongoid::Document
   include Mongoid::Timestamps
-  embeds_one :profile#, :physical, :environment, :interest, :filter
+  embeds_one :profile
+
   has_many :message#, :notification, :coordinate
-  
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -16,7 +17,7 @@ class User
 
   validates_presence_of :email
   validates_presence_of :encrypted_password
-  
+
   ## Recoverable
   field :reset_password_token,   :type => String
   field :reset_password_sent_at, :type => Time
@@ -48,5 +49,5 @@ class User
   index({ email: 1 }, { unique: true, background: true })
   field :name, :type => String
   validates_presence_of :name
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :created_at, :updated_at, :profile_attr
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :created_at, :updated_at
 end

@@ -1,2 +1,11 @@
 log/
 /nbproject/private/
+nbproject/project.properties
+
+nbproject/project.xml
+
+tmp/pids/server.pid
+
+log/development.log
+
+log/development.log
